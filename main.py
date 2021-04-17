@@ -35,6 +35,17 @@ J=j()
 @client.event
 async def on_ready():
 	print('Bot Working')
+@client.event
+async def on_message(ctx, *args):
+	print(ctx)
+	if ctx.channel.id==832597151698649089:
+		channel = client.get_channel(832889985035665438)
+		if channel:
+			await channel.send(f'{ctx.author.name}#MC>> {ctx.content}')
+	elif ctx.channel.id==832797467317370910:
+		channel = client.get_channel(832889985035665438)
+		if channel:
+			await channel.send(f'{ctx.author.name}#{ctx.author.discriminator}>> {ctx.content}')
 
 @client.command(name='info', invoke_without_subcommand=True)
 async def info(ctx, *args):
